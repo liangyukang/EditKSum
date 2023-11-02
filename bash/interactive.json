@@ -1,0 +1,38 @@
+{
+    "configurations": [
+        {
+            "name": "debug",
+            "type": "python",
+            "request": "launch",
+            "program": "/data/yukangliang/实验/KpeEditorWithAdaptor/fairseq_cli/interactive.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "/data/yukangliang/实验/KpeEditorWithAdaptor/fairseq_cli",
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "2",
+            },
+            "args": [
+                "-s", "source", "-t", "target",
+                "/data/yukangliang/实验/BertKpeEditorWithAdaptor/data-bin-bert-cased-510",
+                "--input", "/data/yukangliang/实验/BertKpeEditorWithAdaptor/concat/concat_story/cons",
+                "--task", "translation_lev",
+                "--path", "/data/yukangliang/实验/BertKpeEditorWithAdaptor/checkpoints_transformer_transformer_cased/checkpoint_best.pt",
+                "--iter-decode-max-iter", "10",
+                "--iter-decode-eos-penalty", "0",
+                "--beam", "1",
+                "--print-step", "--retain-iter-history",
+                "--constrained-decoding",
+                "--skip-invalid-size-inputs-valid-test",
+                "--max-source-positions", "512", "--max-target-positions", "512",
+                "--batch-size", "1",
+                "--buffer-size", "1",
+                "--has-target"
+        
+          ]  
+        
+    }
+]
+}
+    
+
+    

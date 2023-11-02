@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "debug",
+            "type": "python",
+            "request": "launch",
+            "program": "/data/yukangliang/实验/KPEEDITORTransformer/fairseq_cli/preprocess.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "/data/yukangliang/实验/KPEEDITORTransformer/fairseq_cli",
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "4,5,6,7",
+            },
+            "args": [
+                "--trainpref", "/data/yukangliang/数据集/cnn_dm_distill_by_bart/tokenizer/train", "--validpref", "/data/yukangliang/数据集/cnn_dm_distill_by_bart/tokenizer/valid", "--testpref", "/data/yukangliang/数据集/cnn_dm_distill_by_bart/tokenizer/test",
+                "--destdir", "../data-bin", "--workers", "60",
+                "--source-lang", "source", "--target-lang", "target",
+                "--joined-dictionary",
+                "--srcdict", "/data/yukangliang/预训练模型/roberta-base/vocab.txt",
+                "--padding-factor","1",
+            ],
+        }
+    ]
+}

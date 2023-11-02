@@ -1,0 +1,44 @@
+nohup: ignoring input
+2022-12-10 12:13:36 | INFO | fairseq.distributed_utils | distributed init (rank 0): tcp://localhost:18608
+2022-12-10 12:13:36 | INFO | fairseq.distributed_utils | distributed init (rank 3): tcp://localhost:18608
+2022-12-10 12:13:36 | INFO | torch.distributed.distributed_c10d | Added key: store_based_barrier_key:1 to store for rank: 3
+2022-12-10 12:13:36 | INFO | fairseq.distributed_utils | distributed init (rank 2): tcp://localhost:18608
+2022-12-10 12:13:36 | INFO | torch.distributed.distributed_c10d | Added key: store_based_barrier_key:1 to store for rank: 2
+2022-12-10 12:13:36 | INFO | fairseq.distributed_utils | distributed init (rank 1): tcp://localhost:18608
+2022-12-10 12:13:36 | INFO | torch.distributed.distributed_c10d | Added key: store_based_barrier_key:1 to store for rank: 1
+2022-12-10 12:13:36 | INFO | torch.distributed.distributed_c10d | Added key: store_based_barrier_key:1 to store for rank: 0
+2022-12-10 12:13:36 | INFO | torch.distributed.distributed_c10d | Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 4 nodes.
+2022-12-10 12:13:36 | INFO | fairseq.distributed_utils | initialized host ubuntu as rank 0
+2022-12-10 12:13:36 | INFO | torch.distributed.distributed_c10d | Rank 1: Completed store-based barrier for key:store_based_barrier_key:1 with 4 nodes.
+2022-12-10 12:13:36 | INFO | fairseq.distributed_utils | initialized host ubuntu as rank 1
+2022-12-10 12:13:36 | INFO | torch.distributed.distributed_c10d | Rank 2: Completed store-based barrier for key:store_based_barrier_key:1 with 4 nodes.
+2022-12-10 12:13:36 | INFO | fairseq.distributed_utils | initialized host ubuntu as rank 2
+2022-12-10 12:13:36 | INFO | torch.distributed.distributed_c10d | Rank 3: Completed store-based barrier for key:store_based_barrier_key:1 with 4 nodes.
+2022-12-10 12:13:36 | INFO | fairseq.distributed_utils | initialized host ubuntu as rank 3
+Traceback (most recent call last):
+  File "/data/yukangliang/anaconda3/envs/BertKpeEditorWithAdaptor/bin/fairseq-train", line 33, in <module>
+    sys.exit(load_entry_point('fairseq', 'console_scripts', 'fairseq-train')())
+  File "/data/yukangliang/实验/BertKpeEditorWithAdaptor/fairseq_cli/train.py", line 380, in cli_main
+    torch.multiprocessing.spawn(
+  File "/data/yukangliang/anaconda3/envs/BertKpeEditorWithAdaptor/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 230, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method='spawn')
+  File "/data/yukangliang/anaconda3/envs/BertKpeEditorWithAdaptor/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 188, in start_processes
+    while not context.join():
+  File "/data/yukangliang/anaconda3/envs/BertKpeEditorWithAdaptor/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 150, in join
+    raise ProcessRaisedException(msg, error_index, failed_process.pid)
+torch.multiprocessing.spawn.ProcessRaisedException: 
+
+-- Process 2 terminated with the following error:
+Traceback (most recent call last):
+  File "/data/yukangliang/anaconda3/envs/BertKpeEditorWithAdaptor/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 59, in _wrap
+    fn(i, *args)
+  File "/data/yukangliang/实验/BertKpeEditorWithAdaptor/fairseq_cli/train.py", line 352, in distributed_main
+    main(args, init_distributed=True)
+  File "/data/yukangliang/实验/BertKpeEditorWithAdaptor/fairseq_cli/train.py", line 46, in main
+    args.distributed_rank = distributed_utils.distributed_init(args)
+  File "/data/yukangliang/实验/BertKpeEditorWithAdaptor/fairseq/distributed_utils.py", line 100, in distributed_init
+    dist.all_reduce(torch.zeros(1).cuda())
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+

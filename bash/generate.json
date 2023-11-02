@@ -1,0 +1,43 @@
+{
+    "configurations": [
+        {
+            "name": "debug",
+            "type": "python",
+            "request": "launch",
+            "program": "/data/yukangliang/实验/BertKpeEditorWithAdaptor/fairseq_cli/generate.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "/data/yukangliang/实验/BertKpeEditorWithAdaptor/fairseq_cli",
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "6",
+            },
+            "args": [
+                "-s", "source", "-t", "target",
+                "/data/yukangliang/实验/BertKpeEditorWithAdaptor/Summarization/data-bin/CNNDM",
+                "--task", "translation_lev",
+                "--path", "/data/yukangliang/实验/BertKpeEditorWithAdaptor/Summarization/checkpoint/CNNDM/EditKSum/checkpoint_best.pt",
+                "--cached_features_dir", "/data/yukangliang/实验/BertKpeEditorWithAdaptor/Summarization/cached_examples/CNNDM",
+                "--tokenizer_dir","/data/yukangliang/预训练模型/bert-base-cased",
+                "--gen-subset", "test",
+                "--iter-decode-max-iter", "10",
+                "--iter-decode-eos-penalty", "0",
+                "--beam", "5",
+                "--print-step", "--retain-iter-history",
+                "--skip-invalid-size-inputs-valid-test",
+                "--max-source-positions", "512", "--max-target-positions", "512",
+                "--batch-size", "32",
+                "--decoder_input", "target",
+                "--constrained-decoding",
+                "--kpe",
+                "--return_mode","shers",
+                "--return_num","1.0",
+                "--constraint_file","/data/yukangliang/实验/BertKpeEditorWithAdaptor/Summarization/outputs/CNNDM/EditKSum/shers_1.0"
+        
+          ]  
+        
+    }
+]
+}
+    
+
+    
